@@ -1,0 +1,41 @@
+{% load static %}
+<div class="sidebar">
+    <nav class="sidebar-nav">
+        <ul class="nav">
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'home' %}"><i class="icon-speedometer"></i> Dashboard</a>
+            </li>
+            <!-- Administration Section Start -->
+            <li class="nav-item nav-dropdown">
+             <a class="nav-link nav-dropdown-toggle" href="{% url 'staff' %}">
+                 <i class="nav-icon icon-puzzle"></i>Staff Information</a>
+           </li>
+           <!-- Administration Section END -->
+           <li class="nav-item nav-dropdown">
+            <a class="nav-link nav-dropdown-toggle" href="{% url 'subject' %}">
+                <i class="nav-icon icon-puzzle"></i>Add Subject</a>
+          </li>
+          <li class="nav-item nav-dropdown">
+            <a class="nav-link nav-dropdown-toggle" href="{% url 'result' %}">
+                <i class="nav-icon icon-puzzle"></i>Add Result</a>
+          </li>
+          <li class="nav-item nav-dropdown">
+            <a class="nav-link nav-dropdown-toggle" href="{% url 'studentlogin' %}">
+                <i class="nav-icon icon-puzzle"></i>Student Login</a>
+           
+          </li>
+          <li class="nav-item nav-dropdown">
+            <a class="nav-link nav-dropdown-toggle" href="{% url 'student' %}">
+                <i class="nav-icon icon-puzzle"></i>Student Information</a>
+           
+          </li>
+
+        <!-- User-Manual Section START -->
+       <!-- User-Manual Section END -->
+        </ul>
+    </nav>
+    <button class="sidebar-minimizer brand-minimizer" type="button"></button>
+
+    {% block sidebar %}
+    {% endblock %}
+</div>

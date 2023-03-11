@@ -1,0 +1,42 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block content %}
+<div class="card">
+  <div class="card-header">Subject Register Form</div>
+  <div class="card-body">
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ forms.as_p }}
+    <button type="submit" class="btn btn-success">Upload</button>
+  </form>
+</div>
+</div>
+<div class="card">
+  <div class="card-header">
+      <i class="fa fa-align-justify"></i>Subject List</div>
+  <div class="card-body" style="overflow-x:auto;">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Subject Name</th>
+        <th scope="col">Description</th>
+        <th scope="col">Action</th>
+    </tr>
+    </thead>
+    <tbody id="tbody">
+      {% for st in st %}
+      <tr>
+          <td>{{st.id}}</td>
+          <td>{{st.subject_name}}</td>
+          <td>{{st.description}}</td>
+          <td>
+              <input type="button" value="Delete" onliClick="deletesu()" class="btn btn-danger btn-sm btn-del" data-sid="{{st.id}}">
+          </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+</table>
+<script src="{% static 'core/js/jquery.js' %}"></script>
+  <script src="{% static 'core/js/popper.js' %}"></script>
+{%endblock%}
